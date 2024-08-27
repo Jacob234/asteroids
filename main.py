@@ -10,11 +10,11 @@ screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
 
 
 clock = pygame.time.Clock()
-dt = 0
 player = Player(x = SCREEN_WIDTH/2, y = SCREEN_HEIGHT/2)
 
 
 def main():
+    dt = 0
     print("Starting asteroids!")
 
 
@@ -24,6 +24,7 @@ def main():
                 return
 
         
+        player.update(dt)
         screen.fill(000)
         player.draw(screen)
         dt = clock.tick(60)/1000
