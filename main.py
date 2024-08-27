@@ -8,6 +8,9 @@ pygame.init
 screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
 
 
+clock = pygame.time.Clock()
+dt = 0
+
 
 def main():
     print("Starting asteroids!")
@@ -19,6 +22,8 @@ def main():
     
         screen.fill(000)
         pygame.display.flip()
+        dt = clock.tick(60)
+
 
 
 if __name__ == "__main__":
