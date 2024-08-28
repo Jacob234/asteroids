@@ -22,6 +22,7 @@ Asteroid.containers = (updatable, drawable, asteroids)
 Player.containers = (updatable, drawable)
 player = Player(x = SCREEN_WIDTH/2, y = SCREEN_HEIGHT/2)
 asteroid_belt = AsteroidField()
+
 Shot.containers = (updatable, drawable, shots)
 
 
