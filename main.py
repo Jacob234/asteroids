@@ -6,11 +6,17 @@ from constants import *
 from player import Player
 pygame.init
 
+updatable = pygame.sprite.Group()
+drawable = pygame.sprite.Group()
+
 screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
-
-
 clock = pygame.time.Clock()
+
+
+Player.containers = (updatable, drawable)
 player = Player(x = SCREEN_WIDTH/2, y = SCREEN_HEIGHT/2)
+
+
 
 
 def main():
@@ -23,10 +29,16 @@ def main():
             if event.type == pygame.QUIT:
                 return
 
-        
-        player.update(dt)
         screen.fill(000)
-        player.draw(screen)
+
+        
+        for entity in updatable:
+            entity.update(dt)
+
+        for entity in drawable:
+            entity.draw(screen)
+
+
         dt = clock.tick(60)/1000
         pygame.display.flip()
 
